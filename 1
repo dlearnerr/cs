@@ -1,0 +1,14 @@
+fromscapy.allimport*
+packet=IP()/TCP()
+e_pack=Ether()/packet
+e_pack.show()
+
+#!/bin/bash
+host="www.example.com"
+read-p"Enter the starting port number: " start_port
+read-p"Enter the ending port number: " end_port
+for ((port=start_port; port<=end_port; port++ ))
+do
+echo"Scanning port$port..."
+nc-zv-w1"$host""$port"2>&1
+done
