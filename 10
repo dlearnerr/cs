@@ -1,0 +1,10 @@
+from scapy.all import *
+
+def callback(packet):
+    if packet.haslayer(IP) and packet[IP].proto == 1:
+        print(f"ICMP packet from {packet[IP].src}")
+
+sniff(prn=callback, filter="icmp", store=0)
+
+nmap 192.168.1.10
+nmap -sV 192.168.1.10
