@@ -1,0 +1,31 @@
+from scapy.all import *
+
+target = "192.168.1.0/24"   # change to your network
+
+# ARP request
+arp = ARP(pdst=target)
+
+# Broadcast
+ether = Ether(dst="ff:ff:ff:ff:ff:ff")
+
+# Combine
+packet = ether/arp
+
+# Send and receive
+result = srp(packet, timeout=2, verbose=0)[0]
+
+print("Active Hosts:")
+print("IP Address\t\tMAC Address")
+print("-----------------------------------------")
+
+for sent, received in result:
+    print(f"{received.psrc}\t\t{received.hwsrc}")
+
+sudo python3 arp_scan.py
+
+nc -l -p 8080 < image.jpg
+http://localhost:8080
+
+nc -l -p 5000
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
