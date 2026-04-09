@@ -1,0 +1,19 @@
+importscapy.allasscapy
+request=scapy.ARP()
+request.pdst="192.168.5.13/24"
+broadcast=scapy.Ether()
+broadcast.dst="ff:ff:ff:ff:ff:ff"
+request_broadcast=broadcast/request
+clients=scapy.srp(request_broadcast,timeout=1)[0]
+forelementinclients:
+print(element[1].psrc+" - "+element[1].hwsrc)
+
+nc -l -p 5000
+http://localhost:5000
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Server: nooblinux
+Hello from Netcat!
+
+nmap 192.168.1.100-120
+nmap 192.168.1.0/24
