@@ -4,11 +4,13 @@ e_pack=Ether()/packet
 e_pack.show()
 
 #!/bin/bash
-host="www.example.com"
-read-p"Enter the starting port number: " start_port
-read-p"Enter the ending port number: " end_port
-for ((port=start_port; port<=end_port; port++ ))
+target="8.8.8.8"
+echo "Enter the starting port number:"
+read port_start
+echo "Enter the ending port number:"
+read port_end
+for ((port=port_start; port<=port_end; port++))
 do
-echo"Scanning port$port..."
-nc-zv-w1"$host""$port"2>&1
+    echo "Scanning Port $port ..."
+    nc -zv -w 1 $target $port 2>&1 | grep succeeded
 done
