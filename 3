@@ -1,0 +1,16 @@
+fromscapy.allimport*
+result,unanswered=traceroute(["www.example.com","www.googl
+e.com"],maxttl=20)
+result.show()
+
+nc example.com 80
+GET / HTTP/1.1
+Host: example.com
+HEAD / HTTP/1.1
+Host: example.com
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+nmap -sn 192.168.1.0/24
+nmap 192.168.1.1
