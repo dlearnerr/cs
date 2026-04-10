@@ -4,5 +4,17 @@ send(packet)
 nc -l -p 8080 < image.jpg
 http://localhost:8080
 
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Server: Nooblinux
+
+<!doctype html>
+<title>Nooblinux</title>
+<img src="https://img.freepik.com/free-photo/parakeet-platycercus-barnardii-illustrated-by-elizabeth-gould_53876-65557.jpg">
+
+
+
+
+
 x' UNION SELECT COUNT(itemnum),2,3,4 FROM itemdb -- 
 x' UNION SELECT count(itemnum),count(itemnum),count(itemnum),count(itemnum) FROM itemdb --
